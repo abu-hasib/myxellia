@@ -8,9 +8,9 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 import { BiSearch } from "react-icons/bi";
-import SimpleTabs from "./Tabs";
+import SimpleTabs, { type TabItem } from "./Tabs";
 
-const navMenu = [
+const navMenu: TabItem[] = [
   { id: 1, icon: "home", label: "Dashboard", value: "dashboard" },
   { id: 2, icon: "toolbox", label: "Listings", value: "listings" },
   { id: 3, icon: "profile", label: "Users", value: "users" },
