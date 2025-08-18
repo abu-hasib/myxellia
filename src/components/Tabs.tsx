@@ -1,4 +1,4 @@
-import { HStack, Icon, Show, Tabs } from "@chakra-ui/react";
+import { Icon, Show, Tabs } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 import { Icons } from "./icons";
 

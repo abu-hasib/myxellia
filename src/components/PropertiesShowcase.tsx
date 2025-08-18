@@ -1,13 +1,10 @@
 import {
   Box,
-  Flex,
-  Float,
   HStack,
   Image,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
 import property2 from "@/assets/property2.svg";
 import property3 from "@/assets/property3.svg";
 
@@ -20,7 +17,7 @@ function PropertiesShowcase() {
           width="full"
           maxWidth="100%"
           rounded="2xl"
-          src="https://images.unsplash.com/flagged/photo-1572491259205-506c425b45c3"
+          src={property2}
         />
         <Box
           position="absolute"

@@ -6,7 +6,6 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { BiBracket } from "react-icons/bi";
-import { FaHome } from "react-icons/fa";
 import Stat from "./Stat";
 import { FaPerson } from "react-icons/fa6";
 

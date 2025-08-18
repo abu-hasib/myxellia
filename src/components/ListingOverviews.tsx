@@ -1,9 +1,6 @@
 import { Box, Card, Flex, HStack, Icon, Link } from "@chakra-ui/react";
-import React from "react";
 import { FaHome } from "react-icons/fa";
 import Stat from "./Stat";
-import { BsArrowBarRight } from "react-icons/bs";
-import { TbBracketsAngle } from "react-icons/tb";
 import { BiBracket } from "react-icons/bi";
 
 const statsData = [

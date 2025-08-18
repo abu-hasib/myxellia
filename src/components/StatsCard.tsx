@@ -1,6 +1,5 @@
 import { Card, Icon as ChakraIcon, Flex, Text } from "@chakra-ui/react";
 import { Icons } from "./icons";
-import { FcEmptyTrash } from "react-icons/fc";
 import { BiQuestionMark } from "react-icons/bi";
 
 function StatsCard({

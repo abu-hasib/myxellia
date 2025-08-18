@@ -1,7 +1,4 @@
-import {
-    Field, Input,
-    Stack
-} from "@chakra-ui/react";
+import { Field, Input, Stack } from "@chakra-ui/react";
 import { PopoverBody, PopoverContent } from "./ui/popover";
 
 const Popover = () => {
@@ -19,4 +16,4 @@ const Popover = () => {
   );
 };
 
-export default Popover
+export default Popover;

@@ -8,7 +8,7 @@ import { BiBell, BiCalendar, BiMessage } from "react-icons/bi";
 import { BsCalculator } from "react-icons/bs";
 import { Avatar } from "./ui/avatar";
 import { PopoverTrigger } from "./ui/popover";
-import Popover from './Popover'
+import Popover from "./Popover";
 
 function Navbar() {
   return (
