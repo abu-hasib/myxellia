@@ -25,8 +25,8 @@ function SalesOverview() {
     <Tabs.RootProvider value={tabs}>
       <Card.Root size="lg">
         <Box borderBottom="solid #E4E4E4" borderWidth="1">
-          <Card.Header justifyContent="space-between">
-            <Flex justifyContent="space-between">
+          <Card.Header justifyContent="space-between" padding="4">
+            <Flex justifyContent="space-between" align="center">
               <Box>
                 <Card.Title> Sales Overview</Card.Title>
                 <Card.Description>

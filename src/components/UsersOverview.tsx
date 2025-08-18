@@ -1,14 +1,48 @@
-import { Card, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  Flex, HStack,
+  Icon,
+  Link,
+} from "@chakra-ui/react";
+import { BiBracket } from "react-icons/bi";
+import { FaHome } from "react-icons/fa";
+import Stat from "./Stat";
+import { FaPerson } from "react-icons/fa6";
+
+const statsData = [
+  { label: "Total", value: "20.7k" },
+  { label: "Riders", value: "8.5k" },
+  { label: "Subscribers", value: "7.5k" },
+];
 
 function UsersOverview() {
   return (
-    <Card.Root size="lg">
-      <Card.Header>
-        <Heading size="md"> Card - lg</Heading>
-      </Card.Header>
-      <Card.Body color="fg.muted">
-        This is the card body. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit.
+    <Card.Root width="full">
+      <Box borderBottom="solid #E4E4E4" borderWidth="1">
+        <Card.Header bg="#F9FAFB" justifyContent="space-between" paddingBlock="4">
+          <Flex justifyContent="space-between">
+            <HStack>
+              <Icon>
+                <FaPerson />
+              </Icon>
+              <Card.Title fontWeight="medium" fontSize="sm">
+                Users Overview
+              </Card.Title>
+            </HStack>
+            <HStack>
+              <Link color="#4545FE" fontWeight="medium" fontSize="xs">
+                View all
+              </Link>
+              <Icon>
+                <BiBracket />
+              </Icon>
+            </HStack>
+          </Flex>
+        </Card.Header>
+      </Box>
+      <Card.Body flexDirection="row" gap="2">
+        {statsData.length ? statsData.map((item) => <Stat {...item} />) : null}
       </Card.Body>
     </Card.Root>
   );
