@@ -1,19 +1,43 @@
-import { Tabs } from "@chakra-ui/react";
+import { HStack, Icon, Show, Tabs } from "@chakra-ui/react";
 import type { ReactNode } from "react";
+import { Icons } from "./icons";
 
-const SimpleTabs = () => {
+type TabItem = {
+  icon: string;
+  id: string;
+  label: string;
+  value: string;
+};
+
+interface SimpleTabsProps extends React.ComponentProps<"div"> {
+  tabs?: TabItem[];
+  defaultSelected?: string | null | undefined;
+}
+const SimpleTabs = ({ tabs = [], defaultSelected = "", ...props }: SimpleTabsProps) => {
   return (
     <Tabs.Root
-      defaultValue="year"
+      defaultValue={defaultSelected || tabs?.[0]?.value}
       variant="subtle"
-      display="flex"
-      flexDirection="column"
-      justifyContent="flex-end"
+      {...props}
     >
-      <Tabs.List alignSelf="flex-end">
-        <Tabs.Trigger value="week">1 Week</Tabs.Trigger>
-        <Tabs.Trigger value="month">1 Month</Tabs.Trigger>
-        <Tabs.Trigger value="year">1 Year</Tabs.Trigger>
+      <Tabs.List>
+        {tabs.length
+          ? tabs.map((item: TabItem) => {
+              const TabIcon = Icons[item?.icon];
+              return (
+                <Tabs.Trigger value={item?.value}>
+                  <Show when={item?.icon}>
+                    <Icon size="lg">
+                      <TabIcon />
+                    </Icon>
+                  </Show>
+                  {item.label}
+                </Tabs.Trigger>
+              );
+            })
+          : null}
+        {/* <Tabs.Trigger value="month">1 Month</Tabs.Trigger>
+        <Tabs.Trigger value="year">1 Year</Tabs.Trigger> */}
       </Tabs.List>
     </Tabs.Root>
   );

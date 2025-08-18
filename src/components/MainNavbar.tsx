@@ -2,51 +2,37 @@ import {
   Box,
   Container,
   Flex,
-  Icon,
-  PopoverTrigger,
-  Avatar,
-  Popover,
-  VStack,
-  Heading,
-  HStack,
   Input,
   InputGroup,
-  Spacer,
+  useTabs,
+  Tabs,
 } from "@chakra-ui/react";
-import { BiBell, BiCalendar, BiMessage, BiSearch } from "react-icons/bi";
-import { BsCalculator } from "react-icons/bs";
+import { BiSearch } from "react-icons/bi";
+import SimpleTabs from "./Tabs";
 
 const navMenu = [
-  { id: 1, icon: BiMessage, title: "Dashboard" },
-  { id: 1, icon: BiMessage, title: "Dashboard" },
-  { id: 1, icon: BiMessage, title: "Dashboard" },
-  { id: 1, icon: BiMessage, title: "Dashboard" },
-  { id: 1, icon: BiMessage, title: "Dashboard" },
+  { id: 1, icon: "home", label: "Dashboard", value: "dashboard" },
+  { id: 2, icon: "toolbox", label: "Listings", value: "listings" },
+  { id: 3, icon: "profile", label: "Users", value: "users" },
+  { id: 4, icon: "article", label: "Request", value: "request" },
+  { id: 5, icon: "scroll", label: "Applications", value: "applications" },
 ];
 
 function MainNavbar() {
+  const tabs = useTabs({
+    defaultValue: "dashboard",
+  });
   return (
-    <Box bg="gray.50" height={62} as="nav">
+    <Box bg="" borderBottom="1px solid #F4F4F5" height={67} as="nav">
       <Container height="full">
         <Flex height="full" justifyContent="space-between" align="center">
-          {/* <Box flex={4} marginEnd="auto"> */}
-            {/* <HStack align="center"> */}
-              {navMenu.length
-                ? navMenu.map((el) => (
-                    <HStack key={el.id} align="center">
-                      <Icon size="sm">
-                        <el.icon height={40} width={40} color="black" />
-                      </Icon>
-                      <Heading size="sm" color="#3D3D3D" fontSize={14}>
-                        {el.title}
-                      </Heading>
-                    </HStack>
-                  ))
-                : null}
-            {/* </HStack> */}
-          {/* </Box> */}
-          {/* <Spacer /> */}
-          <InputGroup width="sm" startElement={<BiSearch width={40} height={40} />}>
+          <Tabs.RootProvider flex="2" width="full" value={tabs}>
+            <SimpleTabs tabs={navMenu} />
+          </Tabs.RootProvider>
+          <InputGroup
+            width="sm"
+            startElement={<BiSearch width={40} height={40} />}
+          >
             <Input placeholder="Search" />
           </InputGroup>{" "}
         </Flex>

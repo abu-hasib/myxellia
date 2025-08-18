@@ -2,10 +2,8 @@ import {
   Box,
   Button,
   Card,
-  Flex,
-  HStack,
-  Tabs,
-  useTabs,
+  Flex, Tabs,
+  useTabs
 } from "@chakra-ui/react";
 import SimpleTabs, { TabsContent } from "./Tabs";
 import YearOverview from "./YearOverview";
@@ -14,6 +12,12 @@ const tabsContentList = [
   { id: 1, content: "Coming Soon..", value: "week" },
   { id: 2, content: "Coming Soon...", value: "month" },
   { id: 3, content: YearOverview, value: "year" },
+];
+
+const tabList = [
+  { id: 1, label: "Week", value: "week" },
+  { id: 2, label: "Month", value: "month" },
+  { id: 3, label: "Year", value: "year" },
 ];
 
 function SalesOverview() {
@@ -39,7 +43,7 @@ function SalesOverview() {
             </Flex>
           </Card.Header>
           <Card.Body color="fg.muted">
-            <SimpleTabs />
+            <SimpleTabs tabs={tabList} defaultSelected="year" alignSelf="flex-end" />
           </Card.Body>
         </Box>
         {tabsContentList.length
@@ -51,11 +55,15 @@ function SalesOverview() {
                   <item.content />
                 );
               return (
-                <TabsContent key={item.id} content={component} value={item.value} />
+                <TabsContent
+                  key={item.id}
+                  content={component}
+                  value={item.value}
+                />
               );
             })
           : null}
-          <Card.Footer></Card.Footer>
+        <Card.Footer></Card.Footer>
       </Card.Root>
     </Tabs.RootProvider>
   );
