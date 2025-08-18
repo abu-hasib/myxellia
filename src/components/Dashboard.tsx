@@ -1,6 +1,5 @@
 import { Box, Container, VStack } from "@chakra-ui/react";
 import WelcomeMessage from "./WelcomeMessage";
-import SalesOverview from "./SalesOverview";
 import OverviewSection from "./OverviewSection";
 
 function Dashboard() {
