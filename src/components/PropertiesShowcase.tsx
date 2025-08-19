@@ -10,6 +10,7 @@ function PropertiesShowcase() {
       gap={{ base: 4, md: 6 }}
       w="full"
       align="stretch"
+      my={4}
     >
       <Box height="286" position="relative" w={{ base: "full", md: "33.33%" }}>
         <Image

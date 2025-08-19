@@ -29,6 +29,7 @@ function MainNavbar() {
       borderBottom="1px solid #F4F4F5"
       height={67}
       as="nav"
+      display={{base: "none", md: "block"}}
       mb={{ base: "4", md: "unset" }}
     >
       <Container height="full">
@@ -53,12 +54,12 @@ function MainNavbar() {
           </Tabs.RootProvider>
           <InputGroup
             width="sm"
-            bg="gray.300"
             rounded="xl"
             display={{base: "none", md: "block"}}
             startElement={<Icon as={BiSearch} size="lg" color="#3D3D3D" />}
           >
             <Input
+              variant="subtle"
               placeholder="Search... properties, customers here"
               fontSize="xs"
             />

@@ -4,13 +4,16 @@
 import Navbar from "./components/Navbar";
 import MainNavbar from "./components/MainNavbar";
 import Dashboard from "./components/Dashboard";
+import { LightMode } from "./components/ui/color-mode";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <MainNavbar />
-      <Dashboard />
+      <LightMode>
+        <Navbar />
+        <MainNavbar />
+        <Dashboard />
+      </LightMode>
     </>
   );
 }

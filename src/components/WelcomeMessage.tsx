@@ -5,7 +5,7 @@ interface WelcomeMessageProps {
 }
 
 function WelcomeMessage({ username = "Ahmed" }: WelcomeMessageProps) {
-  return <Heading size="xl" color="black">Welcome, {username}</Heading>;
+  return <Heading size="xl" my={4} color="black">Welcome, {username}</Heading>;
 }
 
 export default WelcomeMessage;
