@@ -1,7 +1,7 @@
 import { Box, Card, Flex, HStack, Icon, Link } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import Stat from "./Stat";
-import { BiBracket } from "react-icons/bi";
+import { LuChevronRight } from "react-icons/lu";
 
 const statsData = [
   { label: "Total", value: "1.8k" },
@@ -28,7 +28,7 @@ function ListingsOverview() {
                 View all
               </Link>
               <Icon>
-                <BiBracket />
+                <LuChevronRight />
               </Icon>
             </HStack>
           </Flex>

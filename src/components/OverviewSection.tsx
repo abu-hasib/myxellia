@@ -6,11 +6,15 @@ import UsersOverview from "./UsersOverview";
 function OverviewSection() {
   return (
     <Box width="full">
-      <Flex gap="4">
-        <Box flex="2" width="full">
+      <Flex gap="4" flexWrap="wrap" direction={{ base: "column", md: "row" }}>
+        <Box flex={{ base: "1", md: "2" }} width="full">
           <SalesOverview />
         </Box>
-        <VStack justifyContent="space-between" flex="1" width="full">
+        <VStack
+          flex={{ base: "1", md: "1" }}
+          justifyContent="space-between"
+          width="full"
+        >
           <ListingsOverview />
           <UsersOverview />
         </VStack>

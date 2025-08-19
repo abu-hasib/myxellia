@@ -1,7 +1,5 @@
 import { Chart, useChart } from "@chakra-ui/charts";
-import {
-    Box, Flex
-} from "@chakra-ui/react";
+import { Box, Flex, Show } from "@chakra-ui/react";
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
 import StatsCard from "./StatsCard";
 
@@ -101,8 +99,12 @@ function YearOverview() {
   });
 
   return (
-    <Flex gap="4">
-      <Box width="1/2">
+    <Flex
+      gap="4"
+      justify="space-between"
+      direction={{ base: "column", md: "row" }}
+    >
+      <Box width="1/2" display={{ mdDown: "none" }}>
         <Chart.Root chart={chart} height={165}>
           <BarChart data={chart.data}>
             <XAxis dataKey="name" />
@@ -125,9 +127,18 @@ function YearOverview() {
         </Chart.Root>
       </Box>
 
-      <Flex width="1/2" flexWrap="wrap" gap="4">
+      <Flex w={{ base: "full", md: "1/2" }} flexWrap="wrap" gap="4">
         {statsData.length
-          ? statsData.map((item) => <StatsCard {...item} />)
+          ? statsData.map((item) => (
+              <Box
+                key={item.id}
+                flex="1"
+                minW={{ base: "full", sm: "45%", md: "45%" }} // responsive width
+                maxW={{ base: "full", sm: "45%", md: "45%" }}
+              >
+                <StatsCard {...item} />
+              </Box>
+            ))
           : null}
       </Flex>
     </Flex>

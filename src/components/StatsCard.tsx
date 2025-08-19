@@ -12,7 +12,7 @@ function StatsCard({
 }) {
   const Icon = Icons[iconName] || BiQuestionMark;
   return (
-    <Card.Root>
+    <Card.Root height="full" width="full">
       <Card.Header padding="2" minW={170}>
         <Card.Title color={colors.title}>{title}</Card.Title>
         <Flex alignItems="center" gap="1">

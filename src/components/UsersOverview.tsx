@@ -8,6 +8,7 @@ import {
 import { BiBracket } from "react-icons/bi";
 import Stat from "./Stat";
 import { FaPerson } from "react-icons/fa6";
+import { LuChevronRight } from "react-icons/lu";
 
 const statsData = [
   { label: "Total", value: "20.7k" },
@@ -34,7 +35,7 @@ function UsersOverview() {
                 View all
               </Link>
               <Icon>
-                <BiBracket />
+                <LuChevronRight />
               </Icon>
             </HStack>
           </Flex>

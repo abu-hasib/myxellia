@@ -6,6 +6,7 @@ import {
   InputGroup,
   useTabs,
   Tabs,
+  Icon,
 } from "@chakra-ui/react";
 import { BiSearch } from "react-icons/bi";
 import SimpleTabs, { type TabItem } from "./Tabs";
@@ -23,17 +24,44 @@ function MainNavbar() {
     defaultValue: "dashboard",
   });
   return (
-    <Box bg="" borderBottom="1px solid #F4F4F5" height={67} as="nav">
+    <Box
+      bg=""
+      borderBottom="1px solid #F4F4F5"
+      height={67}
+      as="nav"
+      mb={{ base: "4", md: "unset" }}
+    >
       <Container height="full">
-        <Flex height="full" justifyContent="space-between" align="center">
-          <Tabs.RootProvider flex="2" width="full" value={tabs}>
-            <SimpleTabs tabs={navMenu} />
+        <Flex
+          height="full"
+          justifyContent="space-between"
+          direction={{ base: "column", md: "row" }}
+          justify={{ base: "center", md: "space-between" }}
+          gap={{ base: 2, md: 8 }}
+          align="center"
+        >
+          <Tabs.RootProvider
+            flex={{ base: "unset", md: "2" }}
+            display={{ base: "none", md: "flex" }}
+            value={tabs}
+          >
+            <SimpleTabs
+              tabs={navMenu}
+              width="full"
+              justifyContent={{ base: "center", md: "space-between" }}
+            />
           </Tabs.RootProvider>
           <InputGroup
             width="sm"
-            startElement={<BiSearch width={40} height={40} />}
+            bg="gray.300"
+            rounded="xl"
+            display={{base: "none", md: "block"}}
+            startElement={<Icon as={BiSearch} size="lg" color="#3D3D3D" />}
           >
-            <Input placeholder="Search" />
+            <Input
+              placeholder="Search... properties, customers here"
+              fontSize="xs"
+            />
           </InputGroup>{" "}
         </Flex>
       </Container>

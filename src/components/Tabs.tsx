@@ -20,7 +20,7 @@ const SimpleTabs = ({ tabs = [], defaultSelected = "", ...props }: SimpleTabsPro
       variant="subtle"
       {...props}
     >
-      <Tabs.List>
+      <Tabs.List {...props}>
         {tabs.length
           ? tabs.map((item: TabItem) => {
               const TabIcon = Icons[item?.icon];

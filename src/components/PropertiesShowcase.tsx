@@ -1,18 +1,17 @@
-import {
-  Box,
-  HStack,
-  Image,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import property1 from "@/assets/property1.svg"
+import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import property1 from "@/assets/property1.svg";
 import property2 from "@/assets/property2.svg";
 import property3 from "@/assets/property3.svg";
 
 function PropertiesShowcase() {
   return (
-    <HStack>
-      <Box height="286" position="relative">
+    <HStack
+      flexDir={{ base: "column", md: "row" }}
+      gap={{ base: 4, md: 6 }}
+      w="full"
+      align="stretch"
+    >
+      <Box height="286" position="relative" w={{ base: "full", md: "33.33%" }}>
         <Image
           height={286}
           width="full"
@@ -49,7 +48,7 @@ function PropertiesShowcase() {
           </Text>
         </VStack> */}
       </Box>
-      <Box position="relative">
+      <Box position="relative" w={{ base: "full", md: "33.33%" }}>
         <Image height={286} width="full" rounded="2xl" src={property2} />
         <Box
           position="absolute"
@@ -63,7 +62,7 @@ function PropertiesShowcase() {
           align="flex-start"
           gap="0"
           position="absolute"
-          bottom="10%"
+          bottom="5%"
           left="2%"
         >
           <Text
@@ -80,14 +79,8 @@ function PropertiesShowcase() {
           </Text>
         </VStack>
       </Box>
-      <Box position="relative">
-        <Image
-          height={286}
-          width="full"
-          rounded="2xl"
-          src={property3}
-          alt="property"
-        />
+      <Box position="relative" w={{ base: "full", md: "33.33%" }}>
+        <Image height={286} rounded="2xl" width="full" src={property3} alt="property" />
         <Box
           position="absolute"
           top="0"
@@ -100,7 +93,7 @@ function PropertiesShowcase() {
           align="flex-start"
           gap="0"
           position="absolute"
-          bottom="10%"
+          bottom="5%"
           left="2%"
         >
           <Text
