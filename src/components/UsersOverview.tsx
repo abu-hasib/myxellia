@@ -9,6 +9,7 @@ import { BiBracket } from "react-icons/bi";
 import Stat from "./Stat";
 import { FaPerson } from "react-icons/fa6";
 import { LuChevronRight } from "react-icons/lu";
+import { Icons } from "./icons";
 
 const statsData = [
   { label: "Total", value: "20.7k" },
@@ -23,9 +24,7 @@ function UsersOverview() {
         <Card.Header bg="#F9FAFB" justifyContent="space-between" paddingBlock="4">
           <Flex justifyContent="space-between">
             <HStack>
-              <Icon>
-                <FaPerson />
-              </Icon>
+              <Icon  as={Icons.person} size="lg" />
               <Card.Title fontWeight="medium" fontSize="sm">
                 Users Overview
               </Card.Title>

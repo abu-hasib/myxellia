@@ -1,22 +1,25 @@
-import { Box, VStack, HStack, Text, Icon, Button } from "@chakra-ui/react";
-import { FiSliders, FiBarChart2, FiTrendingUp } from "react-icons/fi";
+import {
+  Box,
+  VStack,
+  HStack,
+  Text,
+  Icon,
+  Button,
+  Dialog,
+  Portal,
+  Image,
+} from "@chakra-ui/react";
 import { Icons } from "./icons";
-import { PopoverProvider, PopoverTrigger } from "./ui/popover";
-import Popover from "./Popover";
+import { PopoverProvider } from "./ui/popover";
+import sketch from "@/assets/url motion.png";
 
 const Budgeter = () => {
   return (
     <Box>
-      {/* Top Section with Icon */}
-      <Box bg="blue.900" py={10} display="flex" justifyContent="center">
-        <Icon as={Icons.budgeter} boxSize={16} color="white" />
-      </Box>
-
-      {/* Content */}
-      <VStack align="stretch" spacing={6} p={6}>
-        {/* Feature 1 */}
-        <HStack align="start" spacing={3}>
-          <Icon as={FiSliders} boxSize={5} color="gray.600" />
+      <Image src={sketch} alt="sketch" w="full" />
+      <VStack align="stretch" gap={6} p={6}>
+        <HStack align="center" gap={3}>
+          <Icon as={Icons.settings} size="xl" color="gray.600" />
           <Box>
             <Text fontWeight="bold">
               Set up annual budgets by account category
@@ -28,9 +31,8 @@ const Budgeter = () => {
           </Box>
         </HStack>
 
-        {/* Feature 2 */}
-        <HStack align="start" spacing={3}>
-          <Icon as={FiBarChart2} boxSize={5} color="gray.600" />
+        <HStack align="center" gap={3}>
+          <Icon as={Icons.trendUp} size="xl" color="gray.600" />
           <Box>
             <Text fontWeight="bold">Track actuals vs budget in real time</Text>
             <Text fontSize="sm" color="gray.600">
@@ -39,9 +41,8 @@ const Budgeter = () => {
           </Box>
         </HStack>
 
-        {/* Feature 3 */}
-        <HStack align="start" spacing={3}>
-          <Icon as={FiTrendingUp} boxSize={5} color="gray.600" />
+        <HStack align="center" gap={3}>
+          <Icon as={Icons.up} size="xl" color="gray.600" />
           <Box>
             <Text fontWeight="bold">Adjust figures and forecast with ease</Text>
             <Text fontSize="sm" color="gray.600">
@@ -51,7 +52,6 @@ const Budgeter = () => {
           </Box>
         </HStack>
       </VStack>
-      {/* CTA Button */}
       <Box p={6} textAlign="center">
         <Button
           w="full"
@@ -72,12 +72,22 @@ const Budgeter = () => {
 const BudgeterWithProvider = () => {
   return (
     <PopoverProvider>
-      <PopoverTrigger>
-        <Icon as={Icons.budgeter} size="lg" />
-      </PopoverTrigger>
-      <Popover>
-        <Budgeter />
-      </Popover>
+      <Dialog.Root>
+        <Dialog.Trigger asChild>
+          <Icon as={Icons.budgeter} size="lg" />
+        </Dialog.Trigger>
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body p={0}>
+                <Budgeter />
+              </Dialog.Body>
+              <Dialog.Footer />
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </PopoverProvider>
   );
 };

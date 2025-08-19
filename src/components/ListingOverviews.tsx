@@ -2,6 +2,7 @@ import { Box, Card, Flex, HStack, Icon, Link } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import Stat from "./Stat";
 import { LuChevronRight } from "react-icons/lu";
+import { Icons } from "./icons";
 
 const statsData = [
   { label: "Total", value: "1.8k" },
@@ -16,9 +17,7 @@ function ListingsOverview() {
         <Card.Header bg="#F9FAFB" justifyContent="space-between" paddingBlock="4">
           <Flex justifyContent="space-between">
             <HStack>
-              <Icon>
-                <FaHome />
-              </Icon>
+              <Icon as={Icons.solarHome} size="lg" />
               <Card.Title fontWeight="medium" fontSize="sm">
                 Listings Overview
               </Card.Title>
