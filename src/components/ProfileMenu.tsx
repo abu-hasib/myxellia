@@ -1,6 +1,16 @@
-import { Box, Text, VStack, HStack, Icon, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  VStack,
+  HStack,
+  Icon,
+  Flex,
+  PopoverTrigger,
+} from "@chakra-ui/react";
 import { FiUsers, FiUser, FiLock, FiShield, FiLogOut } from "react-icons/fi";
 import { Avatar } from "./ui/avatar";
+import { PopoverProvider } from "./ui/popover";
+import Popover from "./Popover";
 
 const ProfileMenu = () => {
   return (
@@ -22,22 +32,46 @@ const ProfileMenu = () => {
 
       {/* Menu Items */}
       <Flex flexDir="column" gap="3" divideY="1px">
-        <HStack gap="3" cursor="pointer" _hover={{ bg: "gray.50" }} pb={2} align="center">
+        <HStack
+          gap="3"
+          cursor="pointer"
+          _hover={{ bg: "gray.50" }}
+          pb={2}
+          align="center"
+        >
           <Icon as={FiUsers} boxSize={5} />
           <Text fontWeight="semibold">Teams</Text>
         </HStack>
 
-        <HStack gap="3" cursor="pointer" _hover={{ bg: "gray.50" }} pb={2} pt={4}>
+        <HStack
+          gap="3"
+          cursor="pointer"
+          _hover={{ bg: "gray.50" }}
+          pb={2}
+          pt={4}
+        >
           <Icon as={FiUser} boxSize={5} />
           <Text fontWeight="semibold">Contact Persons</Text>
         </HStack>
 
-        <HStack gap="3" cursor="pointer" _hover={{ bg: "gray.50" }} pb={2} pt={4}>
+        <HStack
+          gap="3"
+          cursor="pointer"
+          _hover={{ bg: "gray.50" }}
+          pb={2}
+          pt={4}
+        >
           <Icon as={FiLock} boxSize={5} />
           <Text fontWeight="semibold">Change password</Text>
         </HStack>
 
-        <HStack gap="3" cursor="pointer" _hover={{ bg: "gray.50" }} pb={2} pt={4}>
+        <HStack
+          gap="3"
+          cursor="pointer"
+          _hover={{ bg: "gray.50" }}
+          pb={2}
+          pt={4}
+        >
           <Icon as={FiShield} boxSize={5} />
           <Text fontWeight="semibold">2 - Factor Authentication</Text>
         </HStack>
@@ -60,4 +94,15 @@ const ProfileMenu = () => {
   );
 };
 
-export default ProfileMenu;
+const ProfileMenuWithProvider = ({name}) => (
+  <PopoverProvider>
+    <PopoverTrigger>
+      <Avatar name={name} />
+    </PopoverTrigger>
+    <Popover padding="2">
+      <ProfileMenu />
+    </Popover>
+  </PopoverProvider>
+);
+
+export default ProfileMenuWithProvider;
