@@ -2,7 +2,12 @@ import { Popover as ChakraPopover, Portal } from "@chakra-ui/react";
 import { CloseButton } from "./close-button";
 import * as React from "react";
 
-const PopoverContext = React.createContext(null);
+type PopoverContextType = {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const PopoverContext = React.createContext<PopoverContextType | null>(null);
 
 function usePopover() {
   const context = React.useContext(PopoverContext);
@@ -12,7 +17,11 @@ function usePopover() {
   return context;
 }
 
-function PopoverProvider({ children }) {
+type PopoverProviderProps = {
+  children: React.ReactNode;
+};
+
+function PopoverProvider({ children }: PopoverProviderProps) {
   const [open, setOpen] = React.useState(false);
 
   const contextValue = {
@@ -21,7 +30,9 @@ function PopoverProvider({ children }) {
   };
   return (
     <PopoverContext.Provider value={contextValue}>
-      <PopoverRoot>{children}</PopoverRoot>
+      <PopoverRoot  open={open} onOpenChange={(e) => setOpen(e.open)}>
+        {children}
+      </PopoverRoot>
     </PopoverContext.Provider>
   );
 }
@@ -75,7 +86,6 @@ export const PopoverCloseTrigger = React.forwardRef<
 });
 
 const PopoverTrigger = ({ children }) => {
-  const { open, setOpen } = usePopover();
   return <ChakraPopover.Trigger>{children}</ChakraPopover.Trigger>;
 };
 

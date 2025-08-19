@@ -2,16 +2,16 @@ import { Icon, Show, Tabs } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 import { Icons } from "./icons";
 
-type TabItem = {
+export type TabItem = {
+  id: number;
   icon: string;
-  id: string;
   label: string;
   value: string;
 };
 
 interface SimpleTabsProps extends React.ComponentProps<"div"> {
   tabs?: TabItem[];
-  defaultSelected?: string | null | undefined;
+  defaultSelected?: string;
 }
 const SimpleTabs = ({ tabs = [], defaultSelected = "", ...props }: SimpleTabsProps) => {
   return (

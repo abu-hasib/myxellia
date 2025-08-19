@@ -1,16 +1,12 @@
 import { Field, Input, Stack } from "@chakra-ui/react";
 import { PopoverBody, PopoverContent } from "./ui/popover";
+ 
 
-const Popover = () => {
+const Popover = ({children, ...props}) => {
   return (
-    <PopoverContent>
-      <PopoverBody>
-        <Stack gap={2}>
-          <Field.Root>
-            <Field.Label>Width</Field.Label>
-            <Input placeholder="40px" />
-          </Field.Root>
-        </Stack>
+    <PopoverContent {...props}>
+      <PopoverBody {...props}>
+        {children}
       </PopoverBody>
     </PopoverContent>
   );

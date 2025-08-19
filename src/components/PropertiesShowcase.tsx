@@ -5,6 +5,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import property1 from "@/assets/property1.svg"
 import property2 from "@/assets/property2.svg";
 import property3 from "@/assets/property3.svg";
 
@@ -17,7 +18,7 @@ function PropertiesShowcase() {
           width="full"
           maxWidth="100%"
           rounded="2xl"
-          src={property2}
+          src={property1}
         />
         <Box
           position="absolute"
@@ -27,7 +28,7 @@ function PropertiesShowcase() {
           h="100%"
           bg="blackAlpha.100"
         />
-        <VStack
+        {/* <VStack
           align="flex-start"
           gap="0"
           position="absolute"
@@ -46,7 +47,7 @@ function PropertiesShowcase() {
           <Text color="#FFFFFF" fontWeight="semibold">
             Urban Prime Plaza Premiere
           </Text>
-        </VStack>
+        </VStack> */}
       </Box>
       <Box position="relative">
         <Image height={286} width="full" rounded="2xl" src={property2} />
